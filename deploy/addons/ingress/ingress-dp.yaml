@@ -118,6 +118,7 @@ spec:
         - --configmap=$(POD_NAMESPACE)/nginx-load-balancer-conf
         - --tcp-services-configmap=$(POD_NAMESPACE)/tcp-services
         - --udp-services-configmap=$(POD_NAMESPACE)/udp-services
+        - --default-ssl-certificate=$(POD_NAMESPACE)/tls-certificate
         # use minikube IP address in ingress status field
         - --report-node-internal-ip-address
         securityContext:
@@ -128,3 +129,4 @@ spec:
               - NET_BIND_SERVICE
           # www-data -> 33
           runAsUser: 33
+
